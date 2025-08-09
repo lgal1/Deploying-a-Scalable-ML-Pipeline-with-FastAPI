@@ -1,5 +1,9 @@
+
 import pickle
 # TODO: add necessary import
+import sys, os
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+
 from typing import Tuple, Any
 import numpy as np
 from sklearn.linear_model import LogisticRegression
@@ -134,7 +138,7 @@ def performance_on_categorical_slice(
 
     """
     df_slice = data[data[column_name] == slice_value]
-    if df_slice.empty
+    if df_slice.empty:
         return 0.0, 0.0, 0.0
     # TODO: implement the function
         # your code here

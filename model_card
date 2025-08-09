@@ -1,0 +1,59 @@
+# Model Card
+
+## Model Details:
+- Person/Organization developing model: Laurie Galler/WGU Student
+– Model date: 8/9/2025
+– The Model version: Python 3.8, scikit-learn 1.2.
+– The Model type was sklearn.linear_model: LogisticRegression.
+- The Training setting was set at a high level.
+    -solver="liblinear", max_iter=1000, random_state=42
+    Label (<=50 vs >50)
+
+## Intended Use
+- The Primary intended use is to predict if an individual's income is more that $50K based on the census data.
+– The Primary intended user is for students studying to be data scientists and studying Machine Learning DevOps Udacity.
+– Out-of-scope use cases would be to automate credit decisions without intervention and human oversight.
+
+## Training Data
+- The source for the data is the UCI Adult Census Income Dataset - census.csv.
+- Features in the data set are:
+    Categorical:
+        - Workclass, Education, Marital Status, Occupation, Relationship, Race, Sex, Native Country
+    Numerical: 
+        - Age, Hours-per-week
+- Label: Salary had two class, one of greater than 50K and one of equal to or less than 50K.
+
+## Evaluation Data
+– The datasets were split. One of training that was 80 percent. On of testing that was 20 percent.
+– The motivation was based on the salary.
+– Preprocessing was done in the process_data and used the pipline implemented in the train_model.py using helpers from model.py.
+
+## Metrics
+- The metrics were tested using a default threshold of 0.5. 
+- The overall test performance for precision was 0.7191. The recall was 0.2742. The F1 score was 0.3970. 
+ - Some examples of the Slice Performance Output below:
+
+workclass: Federal-gov, Count: 195
+Precision: 0.6250 | Recall: 0.1974 | F1: 0.3000
+----------------------------------------
+workclass: Local-gov, Count: 389
+Precision: 0.7297 | Recall: 0.2250 | F1: 0.3439
+----------------------------------------
+workclass: Never-worked, Count: 1
+Precision: 1.0000 | Recall: 1.0000 | F1: 1.0000
+----------------------------------------
+workclass: Private, Count: 4,597
+Precision: 0.6992 | Recall: 0.2696 | F1: 0.3891
+----------------------------------------
+workclass: Self-emp-inc, Count: 222
+Precision: 0.9556 | Recall: 0.3644 | F1: 0.5276
+----------------------------------------
+– The decision threshold is > than 50K for the salary.
+– Variation approach did not apply due to a hard set threshold set at 50K for the salary.
+
+## Ethical Considerations
+- There are some ethical condisderations such as potential bias in gender or race due to the historical daataset.
+- The metrics showed a higher precision but had a lower recall. This can miss some positive cases and should include some fairness checks.
+
+## Caveats and Recommendations
+- The main recommentations is that the dataset is 11 years old and outdated. Most likely does not represent today's demographics. It is recommended to retain updated data.

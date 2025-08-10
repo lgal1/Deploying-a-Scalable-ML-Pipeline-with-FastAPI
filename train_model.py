@@ -111,3 +111,6 @@ with open(os.path.join(project_path, "slice_output.txt"), "w") as f:
             print(f"{col}: {slicevalue}, Count: {count:,}", file=f)
             print(f"Precision: {p:.4f} | Recall: {r:.4f} | F1: {fb:.4f}", file=f)
             print("-" * 40, file=f)
+
+# erased action in git so adding to rerun
+   

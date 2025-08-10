@@ -51,8 +51,7 @@ def test_train_model_logistic_regression(processed_train):
     X_train, y_train, _, _ = processed_train
     model = train_model(X_train, y_train)
     assert isinstance(model, LogisticRegression)
-    pass
-
+   
 # TODO: implement the second test. Change the function name and input as needed
 
 
@@ -67,7 +66,7 @@ def test_train_test_split_shapes(split):
     assert LABEL in train.columns and LABEL in test.columns
     n = len(train) + len(test)
     assert abs(len(test) - 0.2 *n) < 0.02 * n
-    pass
+  
 
 
 # TODO: implement the third test. Change the function name and input as needed
@@ -82,4 +81,6 @@ def test_process_data_arrays_artifacts(processed_train):
     assert isinstance(y_train, np.ndarray) and y_train.size > 0
     assert X_train.shape[0] == y_train.shape[0]
     assert enc is not None and lb is not None
-    pass
+
+    # erased action in git so adding to rerun
+   

@@ -87,4 +87,5 @@ async def post_inference(data: Data):
     # your code here to predict the result using data_processed
     return {"result": apply_label(y_pred)}
 
-
+# erased action in git so adding to rerun
+   

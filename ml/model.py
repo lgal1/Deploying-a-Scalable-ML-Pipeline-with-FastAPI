@@ -1,7 +1,7 @@
 
 import pickle
 # TODO: add necessary import
-import sys, os
+import os, sys
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
 from typing import Tuple, Any
@@ -35,8 +35,7 @@ def train_model(X_train: np.ndarray, y_train: np.ndarray) -> Any:
     )
     model.fit(X_train, y_train)
     return model
-    pass
-
+    
 
 def compute_model_metrics(y: np.ndarray, preds: np.ndarray)-> Tuple[float, float, float]:
     """
@@ -76,7 +75,7 @@ def inference(model: Any, X: np.ndarray) -> np.ndarray:
     """
     # TODO: implement the function
     return model.predict(X)
-    pass
+    
 
 def save_model(model: Any, path: str) -> None:
     """ Serializes model to a file.
@@ -91,19 +90,19 @@ def save_model(model: Any, path: str) -> None:
     # TODO: implement the function
     with open(path, "wb") as f:
         pickle.dump(model, f)
-    pass
+   
 
 def load_model(path: str) -> Any:
     """ Loads pickle file from `path` and returns it."""
     # TODO: implement the function
     with open(path, "rb") as f:
         return pickle.load(f)
-    pass
+    
 
 
 def performance_on_categorical_slice(
     data, column_name: str, slice_value, categorical_features, label: str, encoder, lb, model: Any,
-):
+) -> Tuple[float, float, float]:
     """ Computes the model metrics on a slice of the data specified by a column name and
 
     Processes the data using one hot encoding for the categorical features and a

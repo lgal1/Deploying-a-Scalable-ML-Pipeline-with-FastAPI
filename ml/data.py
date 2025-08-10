@@ -1,6 +1,7 @@
+
+
 import numpy as np
 from sklearn.preprocessing import LabelBinarizer, OneHotEncoder
-
 
 def process_data(
     X, categorical_features=[], label=None, training=True, encoder=None, lb=None
@@ -44,9 +45,12 @@ def process_data(
         passed in.
     """
 
-    if label is not None:
+    if categorical_features is None:
+        categorical_features = []
+
+    if label is not None and label in X.columns:
         y = X[label]
-        X = X.drop([label], axis=1)
+        X = X.drop(columns = [label], axis=1)
     else:
         y = np.array([])
 
